@@ -1,0 +1,202 @@
+*{
+  /* border: 1px dashed black; */
+}
+body, html{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.container {
+  min-width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: ; 
+  padding-bottom: 20px;
+}
+
+/*  HEADER */
+
+.header {
+  min-width: 100%;
+}
+
+.twitch-header {
+  width: 50%;
+  margin: 0px auto;
+  padding: 20px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background-color: #cc33ff;
+  text-align: center;
+}
+
+.twitch-header h1 {
+  margin: 15px;
+  font-family: 'Passion One', cursive;
+  font-size: 45px;
+  text-align: center;
+  letter-spacing: 2.5px;
+  color: #FFFFFF;
+}
+
+/*  STATUS  */
+
+.status {
+    min-width: 100%;
+    padding: 15px;
+    box-sizing: border-box;    
+    justify-content: space-around;
+    display: flex;
+    
+}
+
+.st-buttons {
+  width: 100%;
+  padding: 15px;
+  background-color: rgba(255, 71, 26, 0.7);
+  text-align: center;
+  font-family: 'Passion One', cursive; 
+  font-size: 20px;
+  color: #FFF;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+}
+
+.st-buttons:hover{
+  background-color: #ff471a;
+}
+
+.st-buttons:active{background-color: #ff471a;}
+
+.stats {
+  background-color: lightgreen;
+  border: solid 2px yellow;
+  padding: 5px 25px;
+  border-radius: 15px;
+}
+
+/*  main-content */
+
+.main-content {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.stream-dsp {
+  width: 75%;
+  height:100%;
+  padding: 20px ;
+  box-shadow: inset 0px 0px 7px 2px rgba(191, 0, 255,0.7);
+  background-color: transparent;
+  margin-left: 12.5%;
+  margin-right: 12.5%;
+  /* display: none; */
+}
+
+.Online{
+  width:100%;
+  display: flex;
+  flex-flow: column;
+  background-color: rgba(255, 255, 255, 0.6) ;
+  border-radius: 5px;
+  cursor: pointer;  
+  box-shadow: 0px 0px 4px 1px #96EC00;
+  margin-bottom: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+  line-height: 1.3em;
+}
+
+.Offline{
+  width:100%;
+  display: flex;
+  flex-flow: column;
+  background-color: rgba(255, 255, 255, 0.6) ;
+  border-radius: 5px;
+  cursor: pointer;  
+  box-shadow: 0px 0px 4px 1px red;
+  margin-bottom: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+  line-height: 1.3em;
+}
+
+
+.centered-elements {
+  margin: 0 auto;
+}
+
+.stream-detail {
+  font-size: 17px;
+  font-style: italic;
+  font-family: 'VT323', monospace;
+}
+
+.goRed {
+  color: red;
+}
+
+.img-logo{
+  width: 150px;
+  height: 85px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.img-logo img {
+  width: inherit;
+  height: inherit;
+}
+
+.addStream {
+  position: absolute;
+  left: 90%;
+  cursor: pointer;
+}
+
+.modal {
+    display: ; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+  /* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 45%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}

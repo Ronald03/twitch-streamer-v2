@@ -1,0 +1,42 @@
+@media screen and (max-width: 999px) {
+
+	.twitch-header {
+	  	min-width: 100%;
+	  	margin-top: 25px;
+	  	padding: 15px 0px 15px 0px;
+	  	border-radius: 0px;	  
+	}
+	
+	.twitch-header h1 {
+		font-family: 'Passion One', cursive;
+		font-size: 35px;
+	  	text-align: center;
+	  	letter-spacing: 2.5px;
+	  	color: #FFFFFF;
+	}
+
+	
+}
+
+@media screen and (max-width: 720px) {
+
+	.status {
+		flex-wrap: wrap;
+	 }
+
+	.img-logo{
+		width: 120px;
+		height: 70px;
+		border: 2px solid #FFF;
+		border-radius: 5px;
+	}
+
+	.modal {
+	    width: 100%; /* Full width */
+    	height: 100%; /* Full height */
+	}
+	
+	.modal-content {
+		width: 80%;
+	}
+}

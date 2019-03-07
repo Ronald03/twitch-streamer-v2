@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  
+  <link href="https://fonts.googleapis.com/css?family=Passion+One|VT323" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="twitchStyle.css">
+  <link rel="stylesheet" type="text/css" href="twitch-medias.css">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  
+  <script src="jquery-3.1.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>  
+  <script src="scnd.js"></script>
+  
+
+
+  <title>Twitch Streams Viewer</title>
+
+</head>
+<body>
+
+  <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <label for="add-channel">Add channel's name:</label>
+      <input type="text" id="add-channel">
+      <input type="submit" id="submit" onclick="validate()">
+      
+    </div>
+
+  </div>
+
+  <div class="container">
+      
+      <header class="header">
+        <article class="twitch-header">
+          <h1>TWITCH STREAMS VIEWER</h1>
+        </article>
+      </header>
+      
+      <section class="status">
+        <div class="allStream st-buttons">All Streams</div>
+        <br>
+        <div class="onStream st-buttons"> Online</div>
+        <br>
+        <div class="offStream st-buttons">Offline</div>    
+      </section>
+
+      <section class="stream-dsp"></section>
+      
+
+      <footer class="footer">    
+        <span class="addStream" style="font-size: 3em; color: Tomato;" title="Add Channel">
+          <i class="fas fa-plus-circle"></i>
+        </span>
+
+      </footer>
+    
+  </div><!--ENd of container-->
+  <a href=""></a>
+
+<script src="twitch.js"></script>
+
+<script id="streams-template" type="text/x-handlebars-template">
+  {{#each this}}
+  <div class="{{status}}">
+    <a href="{{url}}"> <div class="img-logo centered-elements">
+      <img src="{{logo}}" alt="Channel_logo">
+    </div> </a>
+    
+    <a class="centered-elements" href="{{url}}"><div class="centered-elements stream-detail">{{name}}</div> </a>
+    <div class="centered-elements stream-detail">{{streamTitle}}</div>
+    <div class="centered-elements stream-detail"><strong>Views:</strong> {{views}}</div>
+    <div class="centered-elements stream-detail"><strong>Followers:</strong> {{followers}}</div>
+  </div>
+  {{/each}}
+</script>
+
+<script id="online-template" type="text/x-handlebars-template">
+  {{#each this}}
+  <div class="{{status}}">
+    <a href="{{url}}"> <div class="img-logo centered-elements">
+      <img src="{{logo}}" alt="Channel_logo">
+    </div> </a>
+    
+    <a class="centered-elements" href="{{url}}"> <div class="centered-elements stream-detail">{{name}}</div> </a>
+    <div class="centered-elements stream-detail">{{streamTitle}}</div>
+    <div class="centered-elements stream-detail"><strong>Views:</strong> {{views}}</div>
+    <div class="centered-elements stream-detail"><strong>Followers:</strong> {{followers}}</div>
+  </div>
+  {{/each}}
+</script>
+
+<script id="offline-template" type="text/x-handlebars-template">
+  {{#each this}}
+  <div class="{{status}}">
+    <a class="centered-elements" href="{{url}}"> <div class="img-logo centered-elements">
+      <img src="{{logo}}" alt="Channel_logo">
+    </div> </a>
+    
+    <a href="{{url}}"> <div class="centered-elements stream-detail">{{name}}</div> </a>
+    <div class="centered-elements stream-detail"><spam class="goRed">{{streamTitle}}</spam></div>
+    <div class="centered-elements stream-detail"><strong>Views:</strong> {{views}}</div>
+    <div class="centered-elements stream-detail"><strong>Followers:</strong> {{followers}}</div>
+  </div>
+  {{/each}}
+</script>
+
+ <script>
+  $(document).ready(function(){  
+
+    //Loan the content on first load
+    allstreams();
+
+    //Show streams (online and offline) on click
+    $(".allStream").on('click', allstreams);
+    $('.onStream').on('click', onstreams);
+    $('.offStream').on('click', offstreams);
+
+    function allstreams(){
+      var chann = channels[0];
+      //console.log(chann);
+      var streamTemplate = document.getElementById('streams-template').innerHTML;
+      //console.log(streamTemplate);
+      var templateCompiled = Handlebars.compile(streamTemplate);
+      var compiledData = templateCompiled(channels);
+      //console.log(compiledData);
+
+      $('.stream-dsp').html(compiledData);
+    }
+
+    function onstreams(){
+      var chann = channels[0];
+      //console.log(chann);
+      var streamTemplate = document.getElementById('online-template').innerHTML;
+      //console.log(streamTemplate);
+      var templateCompiled = Handlebars.compile(streamTemplate);
+      var compiledData = templateCompiled(channel_online);
+      //console.log(compiledData);
+
+      $('.stream-dsp').html(compiledData);
+    }
+
+    function offstreams(){
+      var chann = channels[0];
+      //console.log(chann);
+      var streamTemplate = document.getElementById('offline-template').innerHTML;
+      //console.log(streamTemplate);
+      var templateCompiled = Handlebars.compile(streamTemplate);
+      var compiledData = templateCompiled(channel_offline);
+      //console.log(compiledData);
+
+      $('.stream-dsp').html(compiledData);
+    }
+  });
+
+ </script>
+
+</body>
+</html>
